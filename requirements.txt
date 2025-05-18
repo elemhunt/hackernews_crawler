@@ -1,0 +1,9 @@
+# Core dependencies
+requests==2.31.0
+beautifulsoup4==4.12.3
+SQLAlchemy==2.0.30
+python-dotenv==1.0.1
+
+# Dev/testing tools
+pytest==8.2.0
+flake8==7.0.0
