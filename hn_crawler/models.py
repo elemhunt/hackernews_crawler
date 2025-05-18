@@ -1,5 +1,5 @@
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy.orm import declarative_base
+from sqlalchemy import Column, Integer, String, DateTime, Text
 
 Base = declarative_base()
 
@@ -19,5 +19,16 @@ class UsageLog(Base):
     __tablename__ = "usage_logs"
 
     id = Column(Integer, primary_key=True)
-    timestamp = Column(DateTime)
-    filter_type = Column(String)
+    timestamp = Column(DateTime, nullable=False)
+    filter_type = Column(String, nullable=False)
+
+    request_url = Column(String, nullable=False)
+    response_status_code = Column(Integer, nullable=False)
+    entries_scraped = Column(Integer, nullable=False)
+    error_message = Column(Text, nullable=True)
+    filter_result_count = Column(Integer, nullable=False)
+
+    results = Column(Text, nullable=False)  #   JSON stored as a string
+
+
+

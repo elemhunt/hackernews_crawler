@@ -18,11 +18,13 @@ venv/
 *.log
 usage_logs.json
 usage.db
+test_usage.db
 
 # Python packaging
 *.egg-info/
 dist/
 build/
+.coverage
 
 # OS Files
 .DS_Store

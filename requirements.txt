@@ -6,4 +6,5 @@ python-dotenv==1.0.1
 
 # Dev/testing tools
 pytest==8.2.0
+pytest-cov==5.0.0
 flake8==7.0.0

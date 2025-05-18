@@ -8,9 +8,8 @@ A functional‑first Python web crawler that scrapes the top 30 posts from [Ha
 ## Project Structure
 
 ```
-
-hackernews\_crawler/
-├── hn\_crawler/
+hackernews_crawler/
+├── hn_crawler/
 │   ├── crawler.py
 │   ├── filterer.py
 │   ├── logger.py          # logs to SQLite
@@ -22,26 +21,25 @@ hackernews\_crawler/
 ├── env.tpl                # environment variable template
 ├── .env                   # symlink or copy of env.tpl (git-ignored)
 └── README.md
-
-````
+```
 
 ---
 
 ## Features
 
-| Feature          | Description                                                                 |
-|------------------|-----------------------------------------------------------------------------|
-| **Scraping**     | Pulls rank, title, points, and comment count for the first 30 HN items.     |
-| **Two filters**  | • `filter1` – titles **more than 5 words**, ordered by **comments** (desc)  <br> • `filter2` – titles **≤ 5 words**, ordered by **points** (desc) |
-| **Usage logging**| Logs timestamp, filter type, runtime, and result count to an SQLite file.   |
-| **Functional core** | Pure, testable functions with wrapper classes for clarity.               |
+| Feature             | Description                                                                                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Scraping**        | Pulls rank, title, points, and comment count for the first 30 HN items.                                                                           |
+| **Two filters**     | • `filter1` – titles **more than 5 words**, ordered by **comments** (desc)  <br> • `filter2` – titles **≤ 5 words**, ordered by **points** (desc) |
+| **Usage logging**   | Logs timestamp, filter type, runtime, and result count to an SQLite file.                                                                         |
+| **Functional core** | Pure, testable functions with wrapper classes for clarity.                                                                                        |
 
 ---
 
 ## Requirements
 
-- **Python 3.9+**
-- **[Pipenv](https://pipenv.pypa.io/en/latest/)** (recommended)
+* **Python 3.9+**
+* **[Pipenv](https://pipenv.pypa.io/en/latest/)** (recommended)
 
 > 💡 Prefer `pip` + venv? Install from `requirements.txt` and activate the virtual environment normally.
 
@@ -54,7 +52,7 @@ hackernews\_crawler/
 ```bash
 git clone https://github.com/<your-username>/hackernews-crawler.git
 cd hackernews-crawler
-````
+```
 
 ### 2. Install Pipenv (if needed)
 
@@ -82,7 +80,7 @@ pipenv shell
 
 ---
 
-##  Running the Crawler
+## Running the Crawler
 
 ```bash
 # Filter 1 – titles with >5 words, ordered by comments
@@ -96,12 +94,46 @@ python -m hn_crawler.main filter2
 
 ---
 
-## 🧪 Running Tests (if present)
+## 🧪 Running Tests
 
-If you’ve written tests with `pytest`:
+The project uses **pytest** for testing. All tests are located inside the `tests/` directory.
+
+### Run all tests
+
+From the project root, run:
 
 ```bash
 pytest
+```
+
+This command automatically discovers and runs **all** test files and test functions.
+
+### Run tests with coverage
+
+To measure test coverage, then run tests with coverage reporting:
+
+```bash
+pytest --cov=hn_crawler --cov-report=term-missing
+```
+
+This will show which lines of your code are covered by tests, helping you find untested parts.
+
+### Run specific test files
+
+You can also run tests in a specific file:
+
+```bash
+pytest tests/test_crawler.py
+```
+
+---
+
+## Optional: Shortcut command for tests from outside the virtual environment
+
+Then run tests with coverage using:
+
+```bash
+pipenv run test
 ```
 
 ---
@@ -134,4 +166,3 @@ pytest
 ## License
 
 MIT © 2025 Elijah Hunt
-
